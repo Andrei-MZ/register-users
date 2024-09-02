@@ -1,28 +1,25 @@
+import { useEffect, useState } from 'react'
 import './style.css'
 import Trash from '../../assets/trash.svg'
+import api from '../../services/api'
 
 function Home() {
+  const [users, setUsers] = useState([])
 
-  const users = [
-    {
-      id: '5565656646552646sf',
-      name: 'Andrei',
-      age: 27,
-      email: 'andreimendes8@gmail.com'
-    },
-    {
-      id: '55656454556552646sf',
-      name: 'Lucas',
-      age: 29,
-      email: 'lucaslegal@gmail.com'
-    },
-    {
-      id: '556766454556552646sf',
-      name: 'Cleitin',
-      age: 80,
-      email: 'cleitorasta@gmail.com'
-    }
-  ]
+  async function getUsers(){
+    const userFromApi = await api.get('/users')
+    /**
+     * Quando eu quiser alterar o valor do 'user' eu preciso pegar o 'setUsers' e setUsers (userFromApi.data) a informação que quero passar
+     */
+    setUsers (userFromApi.data)
+    console.log(users)
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+  
+
 
   return (
     <div className='container'>
