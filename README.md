@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="" src="./assets/cadastro.PNG" width="100%">
+  <img src="./public/cadastro.PNG" width="100%">
 </p>
 
 <h1>🚀 Descrição</h1>
